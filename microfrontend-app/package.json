@@ -1,0 +1,38 @@
+{
+  "name": "@microfrontend-app/app1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "webpack-cli serve",
+    "build": "webpack --mode production",
+    "serve": "serve dist -p 3001",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "babel-loader": "^8.1.0",
+    "bundle-loader": "^0.5.6",
+    "classnames": "^2.2.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "serve": "^11.3.2",
+    "typescript": "^4.0.5",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

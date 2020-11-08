@@ -1,0 +1,109 @@
+{"data":[{
+  "_id": {
+    "$oid": "5fa69979798d5c5813249098"
+  },
+  "label": "Achats",
+  "value": "Achats"
+},{
+  "_id": {
+    "$oid": "5fa699b9ab6b97633cc6dc25"
+  },
+  "label": "Aménagement, peinture et composites",
+  "value": "Aménagement, peinture et composites"
+},{
+  "_id": {
+    "$oid": "5fa699c7ab6b97633cc6dc26"
+  },
+  "label": "Chaudronnerie",
+  "value": "Chaudronnerie"
+},{
+  "_id": {
+    "$oid": "5fa699d4ab6b97633cc6dc27"
+  },
+  "label": "Commerce, marketing",
+  "value": "Commerce, marketing"
+},{
+  "_id": {
+    "$oid": "5fa699e0ab6b97633cc6dc28"
+  },
+  "label": "Communication",
+  "value": "Communication"
+},{
+  "_id": {
+    "$oid": "5fa69a02ab6b97633cc6dc29"
+  },
+  "label": "Contrôle, mesure, essais",
+  "value": "Contrôle, mesure, essais"
+},{
+  "_id": {
+    "$oid": "5fa69a0dab6b97633cc6dc2a"
+  },
+  "label": "Coque",
+  "value": "Coque"
+},{
+  "_id": {
+    "$oid": "5fa69a3eab6b97633cc6dc2b"
+  },
+  "label": "Direction de l'entreprise",
+  "value": "Direction de l'entreprise"
+},{
+  "_id": {
+    "$oid": "5fa69a4cab6b97633cc6dc2c"
+  },
+  "label": "Electricité",
+  "value": "Electricité"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc2d"
+  },
+  "label": "Electronique",
+  "value": "Electronique"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc2e"
+  },
+  "label": "Etudes et ingénierie",
+  "value": "Etudes et ingénierie"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc2f"
+  },
+  "label": "Finances",
+  "value": "Finances"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc30"
+  },
+  "label": "Informatique produit",
+  "value": "Informatique produit"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc31"
+  },
+  "label": "Mécanique",
+  "value": "Mécanique"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc32"
+  },
+  "label": "Mathode, Industrialisation, Pilotage de Production",
+  "value": "Mathode, Industrialisation, Pilotage de Production"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc33"
+  },
+  "label": "Programmes",
+  "value": "Programmes"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc34"
+  },
+  "label": "Pyrotechnie",
+  "value": "Pyrotechnie"
+},{
+  "_id": {
+    "$oid": "5fa69b6bab6b97633cc6dc35"
+  },
+  "label": "Qualité & progès",
+  "value": "Qualité & progès"
+}]}

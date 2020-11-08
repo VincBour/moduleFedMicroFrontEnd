@@ -1,0 +1,43 @@
+{"data":[{
+  "_id": {
+    "$oid": "5fa6989e798d5c5813249097"
+  },
+  "label": "Contrat d'alternance",
+  "value": "Contrat d'alternance"
+},{
+  "_id": {
+    "$oid": "5fa69903ab6b97633cc6dc1f"
+  },
+  "label": "Durée déterminée",
+  "value": "Durée déterminée"
+},{
+  "_id": {
+    "$oid": "5fa6991fab6b97633cc6dc20"
+  },
+  "label": "Durée indéterminée",
+  "value": "Durée indéterminée"
+},{
+  "_id": {
+    "$oid": "5fa6992cab6b97633cc6dc21"
+  },
+  "label": "Intérimaire",
+  "value": "Intérimaire"
+},{
+  "_id": {
+    "$oid": "5fa69942ab6b97633cc6dc22"
+  },
+  "label": "Manager de transition",
+  "value": "Manager de transition"
+},{
+  "_id": {
+    "$oid": "5fa69951ab6b97633cc6dc23"
+  },
+  "label": "Stagiaire",
+  "value": "Stagiaire"
+},{
+  "_id": {
+    "$oid": "5fa6995aab6b97633cc6dc24"
+  },
+  "label": "VIE",
+  "value": "VIE"
+}]}
