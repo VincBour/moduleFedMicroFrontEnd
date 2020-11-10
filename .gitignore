@@ -2,8 +2,6 @@ backend/build
 backend/node_modules
 backend/yarn.lock
 
-microfrontend-app/node_modules
-microfrontend-app/yarn.lock
+frontend/packages/yarn.lock
 
-vacancy-frontend/node_modules
-vacancy-frontend/yarn.lock
+node_modules
