@@ -19,7 +19,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { menuListItems } from './Menu/Menu';
 import VacancyContainer from '../vacancyContainer/VacancyContainer';
-import CandidatesContainer from '../candidatesContainer/VacancyContainer';
+import CandidatesContainer from '../candidatesContainer/CandidatesContainer';
 
 function Copyright() {
   return (

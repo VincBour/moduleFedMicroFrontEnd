@@ -44,6 +44,7 @@ module.exports = {
       remotes: {},
       exposes: {
         "./ContainerVacancy": "./src/components/containerVacancy/ContainerVacancy",
+        "./ButtonVacancy": "./src/components/ButtonVacancy/ButtonVacancy",
       },
       shared: require("./package.json").dependencies,
     }),

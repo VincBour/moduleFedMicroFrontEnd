@@ -1,0 +1,5 @@
+declare module "tscandidates-mf/ContainerCandidates"
+declare module "tscandidates-mf/Description"
+declare module "tscandidates-mf/SignIn"
+declare module "tscandidates-mf/Inscription"
+declare module "tscandidates-mf/CandidatesRoutes"

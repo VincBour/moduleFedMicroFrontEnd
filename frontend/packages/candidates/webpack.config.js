@@ -44,6 +44,10 @@ module.exports = {
       remotes: {},
       exposes: {
          "./ContainerCandidates": "./src/components/containerCandidates/ContainerCandidates",
+         "./Description": "./src/components/description/Description",
+         "./SignIn": "./src/components/signIn/SignIn",
+         "./Inscription": "./src/components/inscription/Inscription",
+         "./CandidatesRoutes": "./src/components/router/CandidatesRoutes",
       },
       shared: require("./package.json").dependencies,
     }),
