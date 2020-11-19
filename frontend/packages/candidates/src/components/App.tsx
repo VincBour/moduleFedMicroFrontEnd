@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
 import ContainerCandidates from "./containerCandidates/ContainerCandidates";
-import CandidatesRoutes from './router/CandidatesRoutes';
+import CandidatesRoutes from './candidatesRoute/CandidatesRoutes';
 
 const App = () => (
     <ContainerCandidates>

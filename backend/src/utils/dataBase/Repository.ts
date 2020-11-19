@@ -9,8 +9,13 @@ const getCollection = async <T extends mongoose.Document>(collectionName: string
 
 const find = (collectionName: string, schema: Schema) => async <T extends mongoose.Document>() :Promise<T[]> => {
         const collection : Model<T, {}> = await getCollection<T>(collectionName, schema);
-        console.log(collectionName, await collection.find().exec())
+        
         return collection.find().exec();
+}
+
+const findAllByRef = (collectionName: string, schema: Schema) => async <T extends mongoose.Document>(references: string[]) :Promise<T[]> => {
+        const collection : Model<T, {}> = await getCollection<T>(collectionName, schema);
+        return await collection.find().where('reference').in(references).exec();
 }
 
 const findOne = (collectionName: string, schema: Schema) => async <T extends mongoose.Document>(id: string): Promise<T | null> => {
@@ -38,5 +43,6 @@ export const repository = {
     findOne,
     create,
     update,
-    deleteOne
+    deleteOne,
+    findAllByRef
 }

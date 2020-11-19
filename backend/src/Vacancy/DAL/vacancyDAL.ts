@@ -11,6 +11,11 @@ const findAllVacancy = async (): Promise<IVacancyDoc[]> => {
     return result;
 }
 
+const findAllVacanciesTop = async (references: string[]): Promise<IVacancyDoc[]> => {
+    const result = await vacancyRepository.findAllVacanciesTop<IVacancyDoc>(references);
+    return result;
+}
+
 const findOneVacancy = async (id: string): Promise<IVacancyDoc | null> => {
     const result = await vacancyRepository.findOneVacancy<IVacancyDoc>(id);
     return result;
@@ -19,6 +24,7 @@ const findOneVacancy = async (id: string): Promise<IVacancyDoc | null> => {
 export const vacancyDAL = {
     createVacancy,
     findAllVacancy,
-    findOneVacancy
+    findOneVacancy,
+    findAllVacanciesTop
 }
 

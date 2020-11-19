@@ -1,14 +1,16 @@
 import * as React from 'react';
 import "../../vacancy-mf-decl.d";
-import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
+import { ErrorBoundary } from '../../utils/ErrorBoundary/ErrorBoundary';
 
 const ContainerVacancy = React.lazy(() => import('tsvacancy-mf/ContainerVacancy'));
 
-export const VacancyContainer: React.FC = () => (
+export const VacancyContainer: React.FC = ({children}) => (
    <>
    <ErrorBoundary>
         <React.Suspense fallback='Loading VacancyContainer'>
-            <ContainerVacancy />
+            <ContainerVacancy>
+                {children}
+            </ContainerVacancy>
         </React.Suspense>
     </ErrorBoundary>
 </>

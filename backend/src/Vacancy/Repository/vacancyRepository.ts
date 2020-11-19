@@ -5,10 +5,13 @@ const createVacancy = repository.create(VACANCY, VacancySchema);
 
 const findAllVacancy = repository.find(VACANCY, VacancySchema);
 
+const findAllVacanciesTop = repository.findAllByRef(VACANCY, VacancySchema);
+
 const findOneVacancy = repository.findOne(VACANCY, VacancySchema);
 
 export const vacancyRepository = {
     createVacancy,
     findAllVacancy,
-    findOneVacancy
+    findOneVacancy,
+    findAllVacanciesTop
 }

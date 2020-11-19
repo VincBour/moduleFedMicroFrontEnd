@@ -17,9 +17,24 @@ const fetchReferentialSpecialite = async () => {
     const data = await result.json();
     return data;
 }
+
+const fetchVacanciesTop = async () => {
+    const result = await fetch(`${baseUrl}/api/vacancies/top`);
+    const data = await result.json();
+    return data;
+}
+
+const fetchVacancies = async () => {
+    const result = await fetch(`${baseUrl}/api/vacancies`);
+    const data = await result.json();
+    return data;
+}
+
 export default {
     fetchReferentialContracts,
     fetchReferentialSpecialite,
-    fetchReferentialPays
+    fetchReferentialPays,
+    fetchVacanciesTop,
+    fetchVacancies
 }
 

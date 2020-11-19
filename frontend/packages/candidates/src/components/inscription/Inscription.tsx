@@ -55,7 +55,7 @@ export const Inscription = () => {
                   variant="contained"
                   color="primary"
                   className={classes.submit}
-                  onClick={() => handleClick()}
+                  onClick={handleClick}
                 >
                   Je me crée un espace candidat
                 </Button>

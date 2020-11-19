@@ -47,7 +47,8 @@ module.exports = {
          "./Description": "./src/components/description/Description",
          "./SignIn": "./src/components/signIn/SignIn",
          "./Inscription": "./src/components/inscription/Inscription",
-         "./CandidatesRoutes": "./src/components/router/CandidatesRoutes",
+         "./MySpace":"./src/components/mySpace/MySpace",
+         "./Routes": "./src/router/routes"
       },
       shared: require("./package.json").dependencies,
     }),

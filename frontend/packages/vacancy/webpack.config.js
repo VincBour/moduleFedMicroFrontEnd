@@ -34,6 +34,14 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
 
@@ -44,7 +52,11 @@ module.exports = {
       remotes: {},
       exposes: {
         "./ContainerVacancy": "./src/components/containerVacancy/ContainerVacancy",
-        "./ButtonVacancy": "./src/components/ButtonVacancy/ButtonVacancy",
+        "./HomeVacancy": "./src/components/home/HomeVacancy",
+        "./Vacancies": "./src/components/vacancies/Vacancies",
+        "./Application": "./src/components/application/Application",
+        "./Vacancy": "./src/components/vacancy/Vacancy",
+        "./Routes": "./src/route/routes"
       },
       shared: require("./package.json").dependencies,
     }),

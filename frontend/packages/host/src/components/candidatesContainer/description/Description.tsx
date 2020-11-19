@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../../candidates-mf-decl.d";
-import SuspenceContainer from '../../suspenceContainer/SuspenceContainer';
+import SuspenceContainer from '../../../utils/suspenceContainer/SuspenceContainer';
 
 const CandidatesDescription = React.lazy(() => import('tscandidates-mf/Description'));
 

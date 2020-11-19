@@ -2,8 +2,11 @@ import React from 'react';
 import { Body } from './body/Body';
 import Navigation from './navigation/Navigation';
 import { Switch, Route } from 'react-router-dom';
-import SignInCandidates from '../candidatesContainer/signInCandidates/SignInCandidates';
-import SignUpCandidates from '../candidatesContainer/signUpCandidates/SignUpCandidates';
+import '../../vacancy-mf-decl.d';
+import '../../candidates-mf-decl.d';
+import routesVacancy from 'tsvacancy-mf/Routes';
+import routesCandidate from 'tscandidates-mf/Routes';
+import NotFound from '../notFound/NotFound';
 
 export const ContainerHost = () => {
    return(
@@ -13,12 +16,29 @@ export const ContainerHost = () => {
             <Route exact path='/'>
               <Body />
             </Route>            
-            <Route exact path='/signin'>
-              <SignInCandidates />
-            </Route>            
-            <Route exact path='/signup'>
-              <SignUpCandidates />
-            </Route>         
+            {routesCandidate.map((route, i)=> (
+                    <Route
+                        exact
+                        path={route.path}
+                        render={props => (
+                            <route.component {...props} />
+                        )}
+                        key={i}
+                    />
+            )) }
+            {routesVacancy.map((route, i)=> (
+                    <Route
+                        exact
+                        path={route.path}
+                        render={props => (
+                            <route.component {...props} />
+                        )}
+                        key={i}
+                    />
+            )) }
+            <Route path='*'>
+              <NotFound />
+            </Route>  
           </Switch> 
           
         </>

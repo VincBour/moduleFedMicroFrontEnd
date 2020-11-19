@@ -2,6 +2,7 @@ import { MenuItem, Select, Typography } from '@material-ui/core';
 import * as React from 'react';
 import { getReferential } from '../../store/actions';
 import { DispatchType, useVacancyDispatch, useVacancyState } from '../../store/vacancyProvider';
+import { Referential } from './type';
  
 
 
@@ -49,29 +50,3 @@ export const SelectField: React.FC<{label: string}> = ({label}) => {
         </div>
     )
 }
-
-export type Referential = {
-    label: string, 
-    value: string
-}
-
-
-// const fetchReferential = (label: string): () => Promise<Referential[]> => {
-//     const mapping: {[key: string]: () => Promise<Referential[]>} = {
-//                 ['Pays']: fetchReferentialPays(),
-//                 ['Specialite/emploi']:fetchReferentialSpecialite(),
-//                 ['Type de contrat']: fetchReferentialContracts()
-//     };
-//     return mapping[label];
-// }
-
-
-// const getData = async (label: string) => {
-
-//     const mapping: {[key: string]: {data: Referentiel[]}} = {
-//         ['Pays']: fakeDataPays,
-//         ['Specialite/emploi']:fakeDataSpecialite,
-//         ['Type de contrat']: fakeDataContracts
-//     };
-//     return mapping[label];
-// }

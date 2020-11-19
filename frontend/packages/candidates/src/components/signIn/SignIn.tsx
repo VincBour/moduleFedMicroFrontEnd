@@ -57,7 +57,7 @@ export const SignIn = () => {
                     variant="contained"
                     color='primary'
                     className={classes.submit}
-                    onClick={() => handleClick()}
+                    onClick={handleClick}
                 >
                     Connexion
                 </Button>

@@ -1,7 +1,5 @@
 import React from 'react';
 import { VacancyProvider, VacancyStateType } from '../../store/vacancyProvider';
-import ButtonVacancy from '../ButtonVacancy/ButtonVacancy';
-import Search from '../Search/Search';
 
 export const initialState: VacancyStateType = {
     referential: {
@@ -9,17 +7,15 @@ export const initialState: VacancyStateType = {
         pays: [],
         specialite: []
     },
+    vacancies: [],
+    vacanciesTop: [],
     error: ''
   }
   
-export const ContainerVacancy = () => {
-   return( <div>
-        <h1>VACANCY CONTAINER</h1>
+export const ContainerVacancy = ({children}) => (
         <VacancyProvider initialState={initialState}>
-            <Search />
-            <ButtonVacancy />
+            {children}
         </VacancyProvider>
-    </div>)
-}
+    )
 
 export default ContainerVacancy;

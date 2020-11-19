@@ -1,7 +1,10 @@
 import { Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import { Description } from '../../candidatesContainer/description/Description';
-import { VacancyContainer } from '../../vacancyContainer/VacancyContainer';
+import Copyright from '../../copyright/Copyright';
+import HomeVacancy from '../../vacancyContainer/homeVacancy/HomeVacancy';
+import { Presentation } from '../presentation/Presentation';
+
 const useStyle= makeStyles((theme) => ({
     content: {
         flexGrow: 1,
@@ -25,17 +28,16 @@ export const Body: React.FC = () => {
     const classes = useStyle();
     return (
         <main className={classes.content}>
-            <div className={classes.appBarSpacer}/>
-        <Container maxWidth='lg' className={classes.container}>
+        <Container  className={classes.container}>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>
-Presentation
+                        <Presentation />
                     </Paper>
                 </Grid>
                 <Grid item xs={12}>
                     <Paper className={classes.paper}> 
-                        <VacancyContainer />          
+                        <HomeVacancy/>
                     </Paper>
                 </Grid>
                 <Grid item xs={12}>

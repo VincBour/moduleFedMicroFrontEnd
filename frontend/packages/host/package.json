@@ -17,6 +17,7 @@
     "@types/react-dom": "^16.9.9",
     "babel-loader": "8.1.0",
     "css-loader": "^3.5.3",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "1.2.1",
     "webpack": "5.0.0",

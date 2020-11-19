@@ -43,9 +43,19 @@ const findOneVacancy = async (req: Request, res: Response) => {
     }
 }
 
+const findAllVacanciesTop = async (req: Request, res: Response) => {
+    try{
+        const references = ["2020-01", "2020-04", "2020-05", "2020-10"]
+        const vacancies = await vacancyService.findAllVacanciesTop(references);
+        res.status(HttpStatus.CREATED).json(vacancies);
+    }catch (error){
+        res.status(HttpStatus.BAD_REQUEST).json({message: 'Bad Request'});
+    }
+}
 
 export const vacancyController = {
     createVacancy,
     findAllVacancy,
-    findOneVacancy
+    findOneVacancy,
+    findAllVacanciesTop
 }

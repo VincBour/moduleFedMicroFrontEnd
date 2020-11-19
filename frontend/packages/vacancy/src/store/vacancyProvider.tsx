@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Referential } from "../components/SelectField/SelectField";
+import { Referential } from '../components/SelectField/type';
+import { VacancyType } from '../components/vacancies/type';
 import { reducer } from './reducer';
 
 export type VacancyStateType = {
@@ -8,18 +9,19 @@ export type VacancyStateType = {
         contracts: Referential[],
         specialite: Referential[]
     },
+    vacanciesTop: VacancyType[],
+    vacancies: VacancyType[],
     error: string
 }
-
+export type ActionVacanciesTopType = { type: string, payload: { vacancies: VacancyType[]}}
 export type ActionReferentialType = { type: string, payload: { referentials: Referential[]}}
 export type ActionErrorType = { type: string, payload: {error: string}}
 export type ActionType = {
     type: string
-} | ActionReferentialType | ActionErrorType
+} | ActionReferentialType | ActionErrorType | ActionVacanciesTopType
 
-// Type defined for dispatch
 export type DispatchType = (action: ActionType) => void;
-// Type defined for Provider
+
 export type VacancyProviderType = { children: React.ReactNode, initialState: VacancyStateType };
 
 const VacancyContext = React.createContext<VacancyStateType | undefined>(undefined);

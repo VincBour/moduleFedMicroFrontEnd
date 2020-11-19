@@ -2,13 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ContainerHost from "./containerHost/ContainerHost";
 import { HashRouter } from 'react-router-dom';
-import { CssBaseline } from "@material-ui/core";
-
+import { createMuiTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from "@material-ui/core";
+import VacancyContainer from "./vacancyContainer/VacancyContainer";
+import Copyright from "./copyright/Copyright";
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 const AppHost = () => (
     <>
         <HashRouter>
-            <CssBaseline />
-            <ContainerHost />
+            <VacancyContainer>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <ContainerHost />
+                    <Copyright />
+                </ThemeProvider>
+            </VacancyContainer>
         </HashRouter>
     </>
 

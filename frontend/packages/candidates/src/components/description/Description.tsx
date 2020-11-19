@@ -41,7 +41,7 @@ export const Description = () => {
                     fullWidth
                     variant='contained'
                     color="primary"
-                    onClick={() => handleClick()}
+                    onClick={handleClick}
                 >
                     Je me connecte
                 </Button>
