@@ -1,14 +1,15 @@
 import { repository } from "../utils/dataBase/Repository";
-import { PAYS, ReferentialSchema } from './referentialModel';
+import { PAYS, ReferentialSchema, SPECIALITE } from './referentialModel';
 
 const findAllPays = repository.find(PAYS, ReferentialSchema);
 const findAllContract = repository.find('Contracts', ReferentialSchema);
-const findAllSpecialite = repository.find('Specilite', ReferentialSchema);
+const findAllSpecialite = repository.find(SPECIALITE, ReferentialSchema);
 
 const findOnePays = repository.findOne(PAYS, ReferentialSchema);
 const findOneContract = repository.findOne('Contracts', ReferentialSchema);
-const findOneSpecialite = repository.findOne('Specilite', ReferentialSchema);
+const findOneSpecialite = repository.findOne(SPECIALITE, ReferentialSchema);
 
+const createRef = repository.create(SPECIALITE, ReferentialSchema);
 
 export const referentialRepository = {
     findAllContract,
@@ -16,5 +17,6 @@ export const referentialRepository = {
     findAllSpecialite,
     findOnePays,
     findOneContract,
-    findOneSpecialite
+    findOneSpecialite,
+    createRef
 }

@@ -48,7 +48,12 @@ module.exports = {
          "./SignIn": "./src/components/signIn/SignIn",
          "./Inscription": "./src/components/inscription/Inscription",
          "./MySpace":"./src/components/mySpace/MySpace",
-         "./Routes": "./src/router/routes"
+         "./Routes": "./src/router/routes",
+         './ProtectedRoutes': "./src/router/protectedRoutes",
+         './ProtectedRouteService': "./src/services/protectedRoute",
+         './UserSessionManager': "./src/services/userSessionManager",
+         './UseCandidatesState': './src/store/useCandidatesState',
+         './BottomSignOut': './src/components/navigation/BottomSignOut'
       },
       shared: require("./package.json").dependencies,
     }),

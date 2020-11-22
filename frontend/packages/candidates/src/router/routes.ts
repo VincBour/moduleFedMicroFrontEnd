@@ -1,5 +1,4 @@
 import Inscription from "../components/inscription/Inscription";
-import MySpace from "../components/mySpace/MySpace";
 import SignIn from "../components/signIn/SignIn";
 
 export const routes = [
@@ -10,10 +9,6 @@ export const routes = [
     {
         path:"/signup",
         component: Inscription
-    },
-    {
-        path:"/myspace",
-        component: MySpace
     }
 ]
 

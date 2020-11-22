@@ -1,21 +1,41 @@
 import * as React from 'react';
+import { ActionMap } from '../../../shared/utils/ActionMap';
+import { userLogged } from '../types/userType';
+import { GET_LOGIN_USER_REQUEST, GET_LOGIN_USER_SUCCESS, GET_LOGIN_USER_FAILURE, GET_SIGN_USER_SUCCESS, GET_SIGN_USER_REQUEST, GET_SIGN_USER_FAILURE, GET_SIGN_OUT_USER } from './action-types';
 import { reducer } from './reducer';
 
 export type CandidatesStateType = {
-    error: string
+    authentication: {
+        isRequestSend: boolean;
+        error: string;
+        loading: boolean;
+    }
+    error: string,
+    session: {
+        getUser: () => userLogged | null,
+        getToken: () => string,
+        removeUserSession: () => void,
+        setUserSession: (token:string, user: userLogged) => void
+    }
 }
 
-export type ActionErrorType = { type: string, payload: {error: string}}
-export type ActionType = {
-    type: string
-} |  ActionErrorType
+export type CandidatesActionPayload = {
+    [GET_LOGIN_USER_REQUEST]: undefined,
+    [GET_LOGIN_USER_SUCCESS]: undefined,
+    [GET_LOGIN_USER_FAILURE]: {error: string},
+    [GET_SIGN_USER_REQUEST]: undefined,
+    [GET_SIGN_USER_SUCCESS]:undefined,
+    [GET_SIGN_USER_FAILURE]: {error: string},
+    [GET_SIGN_OUT_USER]: undefined
+}
 
-// Type defined for dispatch
+export type ActionType = ActionMap<CandidatesActionPayload>[keyof ActionMap<CandidatesActionPayload>];
+
 export type DispatchType = (action: ActionType) => void;
-// Type defined for Provider
+
 export type CandidatesProviderType = { children: React.ReactNode, initialState: CandidatesStateType };
 
-const CandidatesContext = React.createContext<CandidatesStateType | undefined>(undefined);
+export const CandidatesContext = React.createContext<CandidatesStateType | undefined>(undefined);
 const CandidatesDispatch = React.createContext<DispatchType | undefined>(undefined)
 
 const CandidatesProvider = ({initialState, children}: CandidatesProviderType) => {
@@ -30,16 +50,6 @@ const CandidatesProvider = ({initialState, children}: CandidatesProviderType) =>
     );
 };
 
-const useCandidatesState = () => {
-    const context = React.useContext(CandidatesContext);
-
-    if (context === undefined) {
-        throw new Error('useCandidatesState must be used within a CandidatesProvider');
-    }
-
-    return context;
-};
-
 const useCandidatesDispatch = () => {
     const context = React.useContext(CandidatesDispatch);
 
@@ -50,4 +60,4 @@ const useCandidatesDispatch = () => {
     return context;
 };
 
-export { CandidatesProvider, useCandidatesState, useCandidatesDispatch };
+export { CandidatesProvider, useCandidatesDispatch };

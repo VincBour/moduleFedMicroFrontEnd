@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { TodoController } from './todo/todoController';
 import vacancyRoutes from './Vacancy/Route/vacancyRoute';
 import referentialRoutes from './Referential/referentialRoute';
+import authenticationRoutes from './Authentication/Route/authenticationRoute';
 
 export const app = express();
 const PORT = 8080;
@@ -26,14 +27,11 @@ app.post('/createtodo', async (req: Request, res: Response) => {
   res.status(200).json(result);
 })
 
-// app.get('/api/referential/:name', async (req:Request, res: Response) => {
-//   const result = await repository.find(PAYS, ReferentialSchema)();
-//   res.status(200).json(result);
-// })
-
 app.use('/', referentialRoutes);
 
 app.use('/', vacancyRoutes);
+
+app.use('/', authenticationRoutes);
 
 app.listen(PORT, () => {
   console.log(`[server]: Server is running at http://localhost:${PORT}`);

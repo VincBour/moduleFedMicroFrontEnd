@@ -8,7 +8,7 @@ const CandidatesContainer: React.FC = ({children}) => {
 return (
     <>
     <ErrorBoundary>
-        <React.Suspense fallback='Loading VacancyContainer'>
+        <React.Suspense fallback='Loading Candidates Container'>
             <ContainerCandidates >
                 {children}
             </ContainerCandidates>

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 37017:27017
+
+  mongo_seed:
+    image: mongo
+    links:
+      - mongodb
+    volumes:
+      - ./data:/data
+    command:
+      /data/import.sh

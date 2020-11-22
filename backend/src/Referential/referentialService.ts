@@ -11,6 +11,11 @@ const findOne = async (name: string, id: string) : Promise<ReferentialDoc | null
     return result;
 } 
 
+const createRef = async (body: ReferentialDoc): Promise<ReferentialDoc | null> => {
+    const result = await referentialDAL.createRef(body);
+    return result;
+}
+
 const getFindAll = (name: string) => {
     const mapping: {[key: string]: () => Promise<ReferentialDoc[]>} = {
         ['pays']: referentialDAL.findAllPays,
@@ -32,5 +37,6 @@ const getFindOne = (name: string) => {
 
 export const referentialService = {
     findAll,
-    findOne
+    findOne,
+    createRef
 }

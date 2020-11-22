@@ -1,7 +1,8 @@
 import mongoose, { Model, Schema } from 'mongoose';
 
 const getCollection = async <T extends mongoose.Document>(collectionName: string, schema: Schema): Promise<mongoose.Model<T, {}>> => {
-    const client = await mongoose.connect('mongodb://localhost:27017/dbmfe', {useNewUrlParser: true, useUnifiedTopology: true });
+//     const client = await mongoose.connect('mongodb://localhost:27017/dbmfe', {useNewUrlParser: true, useUnifiedTopology: true });
+    const client = await mongoose.connect('mongodb://localhost:37017/microfrontend', {useNewUrlParser: true, useUnifiedTopology: true });
     const connection = client.connection;
     console.log(connection.model(collectionName, schema));
     return connection.model(collectionName, schema);
@@ -11,6 +12,11 @@ const find = (collectionName: string, schema: Schema) => async <T extends mongoo
         const collection : Model<T, {}> = await getCollection<T>(collectionName, schema);
         
         return collection.find().exec();
+}
+
+const findOneBy = (collectionName: string, schema: Schema) => async <T extends mongoose.Document>(condition:{}): Promise<T | null> => {
+        const collection : Model<T, {}> = await getCollection<T>(collectionName, schema);
+        return collection.findOne(condition).exec();
 }
 
 const findAllByRef = (collectionName: string, schema: Schema) => async <T extends mongoose.Document>(references: string[]) :Promise<T[]> => {
@@ -44,5 +50,6 @@ export const repository = {
     create,
     update,
     deleteOne,
-    findAllByRef
+    findAllByRef,
+    findOneBy
 }

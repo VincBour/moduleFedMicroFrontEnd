@@ -5,6 +5,7 @@ import { HashRouter } from "react-router-dom";
 import ContainerCandidates from "./containerCandidates/ContainerCandidates";
 import CandidatesRoutes from './candidatesRoute/CandidatesRoutes';
 
+
 const App = () => (
     <ContainerCandidates>
         <HashRouter hashType="noslash">

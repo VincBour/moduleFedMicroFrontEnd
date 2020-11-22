@@ -10,7 +10,6 @@ const findAllPays = async () :Promise<ReferentialDoc[]> => {
     return result;
 }
 const findAllSpecialite = async () :Promise<ReferentialDoc[]> => {
-    console.log("specialite")
     const result = await referentialRepository.findAllSpecialite<ReferentialDoc>();
     console.log(result);
     return result;
@@ -28,11 +27,17 @@ const findOneSpecialite = async (id: string) :Promise<ReferentialDoc | null> => 
     return result;
 }
 
+const createRef = async (ref: ReferentialDoc): Promise<ReferentialDoc | null> => {
+    const result = await referentialRepository.createRef(ref);
+    return result;
+}
+
 export const referentialDAL = {
     findAllContract,
     findAllPays,
     findAllSpecialite,
     findOnePays,
     findOneContract,
-    findOneSpecialite
+    findOneSpecialite,
+    createRef
 }
