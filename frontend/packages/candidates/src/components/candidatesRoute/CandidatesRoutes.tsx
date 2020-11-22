@@ -30,7 +30,7 @@ export const CandidatesRoutes = () => {
           render={(props) => <route.component {...props} />}
         />
       ))}
-      {protectedRoutes.map((protectedRoute, index) => {
+      {/* {protectedRoutes.map((protectedRoute, index) => {
         return (
           <ProtectedRoute
             key={index}
@@ -39,7 +39,7 @@ export const CandidatesRoutes = () => {
             isAuthenticated={token === null ? false : true}
           />
         );
-      })}
+      })} */}
       <Route path="*">
         <NotFound />
       </Route>

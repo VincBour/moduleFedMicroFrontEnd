@@ -16,9 +16,12 @@ const  BottomSignOut = React.lazy(()=> import ('tscandidates-mf/BottomSignOut'))
 export const Navigation: React.FC = () => {
     const history = useHistory();
     const [value, setValue] = React.useState(0);
+    const [user, setUser] = React.useState(null);
+    const { authentication, session } = useCandidatesState();
     
-    const { session } = useCandidatesState();
-    const user = session.getUser();
+    React.useEffect(() => {
+        setUser(session.getUser());
+    }, [authentication.loading])
 
     const pushHistory = (url: string) => {
         history.push(url);

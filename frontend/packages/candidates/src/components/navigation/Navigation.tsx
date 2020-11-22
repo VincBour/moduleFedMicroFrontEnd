@@ -13,8 +13,7 @@ import useCandidatesState from '../../store/useCandidatesState';
 import BottomSignOut from './BottomSignOut';
 const useStyles = makeStyles({
     root: {
-      width: 500,
-      position: 'fixed'
+      width: 500
     },
   });
 export const Navigation = () => {

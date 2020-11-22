@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --open --mode development",
     "start:live": "webpack-dev-server --open --mode development --liveReload"
   },
+  "author": "Vincent Boursicot",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.9.6",
@@ -26,8 +27,10 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "core-js": "^3.7.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "regenerator-runtime": "^0.13.7"
   }
 }

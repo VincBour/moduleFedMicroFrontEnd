@@ -33,7 +33,6 @@ export const SignIn = () => {
 
   const handleClick = async () => {
     const userLog = await getLogin(dispatch, user);
-    console.log('user', userLog, from);
     session.setUserSession(userLog.token, userLog);
     history.replace(from);
   };

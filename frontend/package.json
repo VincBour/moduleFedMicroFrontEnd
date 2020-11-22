@@ -7,8 +7,8 @@
   "scripts": {
     "start": "concurrently \"wsrun --parallel start\""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Vincent Boursicot",
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],

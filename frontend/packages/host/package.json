@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --open --mode development",
     "start:live": "webpack-dev-server --open --mode development --liveReload"
   },
+  "author": "Vincent Boursicot",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.9.6",

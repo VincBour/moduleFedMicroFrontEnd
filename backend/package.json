@@ -8,8 +8,8 @@
     "build": "tsc --project ./"
   },
   "private": "true",
-  "author": "",
-  "license": "ISC",
+  "author": "Vincent Boursicot",
+  "license": "MIT",
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/jsonwebtoken": "^8.5.0",
