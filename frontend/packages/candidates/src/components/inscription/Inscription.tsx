@@ -4,13 +4,21 @@ import { Avatar, Button, Checkbox, FormControlLabel, Grid, Paper, TextField, Typ
 import { useHistory } from 'react-router-dom';
 import { useStyles } from './style';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { userType } from "../../types/userType";
+import { useCandidatesDispatch } from "../../store/candidatesProvider";
+import { getRegister } from "../../store/actions";
 
 export const Inscription = () => {
     const history = useHistory();
     const classes = useStyles();
-    const handleClick = () => {
-        history.push('/')
+    const dispatch = useCandidatesDispatch();
+    const [user, setUser] = React.useState<userType>({} as userType);
+
+    const handleClick = async () => {
+        await getRegister(dispatch, user);
+        history.push('/signin');
     }
+
     return (
     <Grid container component='main' className={classes.root}>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -28,11 +36,24 @@ export const Inscription = () => {
                   margin="normal"
                   required
                   fullWidth
+                  id="name"
+                  label="Name"
+                  name="name"
+                  autoComplete="name"
+                  autoFocus
+                  onChange={event => setUser({...user, name: event.target.value})}
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={event => setUser({...user, email: event.target.value})}
                 />
                 <TextField
                   variant="outlined"
@@ -44,13 +65,14 @@ export const Inscription = () => {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={event => setUser({...user, password: event.target.value})}
                 />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
                 />
                 <Button
-                  type="submit"
+                  type="button"
                   fullWidth
                   variant="contained"
                   color="primary"

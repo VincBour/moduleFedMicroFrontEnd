@@ -22,7 +22,6 @@ const getFindAll = (name: string) => {
         ['contracts']: referentialDAL.findAllContract,
         ['specialite']: referentialDAL.findAllSpecialite
     }
-    console.log(mapping[name], name)
     return mapping[name];
 }
 

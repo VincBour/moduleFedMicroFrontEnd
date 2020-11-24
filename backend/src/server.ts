@@ -22,7 +22,6 @@ app.get('/', (req,res) => res.send('Express + TypeScript Server'));
 
 app.post('/createtodo', async (req: Request, res: Response) => {
   const todo = req.body;
-  console.log('server',todo);
   const result = await TodoController.createTodo(todo);
   res.status(200).json(result);
 })

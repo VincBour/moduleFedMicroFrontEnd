@@ -11,7 +11,6 @@ const findAllPays = async () :Promise<ReferentialDoc[]> => {
 }
 const findAllSpecialite = async () :Promise<ReferentialDoc[]> => {
     const result = await referentialRepository.findAllSpecialite<ReferentialDoc>();
-    console.log(result);
     return result;
 }
 const findOnePays = async (id: string) :Promise<ReferentialDoc | null> => {

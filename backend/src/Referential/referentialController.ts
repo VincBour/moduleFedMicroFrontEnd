@@ -5,7 +5,6 @@ import { referentialService } from "./referentialService";
 
 const findReferentials = async (req: Request, res: Response) => {
     const referential = req.params.name
-    console.log(referential);
     try{
         const vacancies = await referentialService.findAll(referential);
         res.status(HttpStatus.OK).json(vacancies);
