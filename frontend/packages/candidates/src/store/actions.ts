@@ -1,6 +1,6 @@
 import { userLogged, userType } from "../types/userType";
 import { getLoginUserFailure, getLoginUserRequest, getLoginUserSuccess, getRegisterUserFailure, getRegisterUserRequest, getRegisterUserSuccess } from "./actionCreator";
-import { DispatchType } from "./candidatesProvider";
+import { DispatchType } from "../context/CandidatesProvider";
 import CandidatesServices from '../services/index';
 
 export const getLogin = async (dispatch: DispatchType, user: userType): Promise<userLogged> => {
@@ -10,7 +10,7 @@ export const getLogin = async (dispatch: DispatchType, user: userType): Promise<
         dispatch(getLoginUserSuccess());
         return result;
     }catch(error){
-        dispatch(getLoginUserFailure(error));
+        dispatch(getLoginUserFailure(error.message));
     }
 }
 
@@ -21,6 +21,6 @@ export const getRegister = async (dispatch: DispatchType, user: userType): Promi
         dispatch(getRegisterUserSuccess());
         return result;
     } catch (error) {
-        dispatch(getRegisterUserFailure(error));
+        dispatch(getRegisterUserFailure(error.message));
     }
 }

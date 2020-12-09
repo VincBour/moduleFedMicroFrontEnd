@@ -1,5 +1,5 @@
 import { GET_LOGIN_USER_REQUEST, GET_LOGIN_USER_SUCCESS, GET_LOGIN_USER_FAILURE, GET_SIGN_OUT_USER, GET_SIGN_USER_REQUEST, GET_SIGN_USER_SUCCESS, GET_SIGN_USER_FAILURE } from "./action-types"
-import { ActionType } from "./candidatesProvider";
+import { ActionType } from "../context/CandidatesProvider";
 
 
 export const getLoginUserRequest = (): ActionType => { 

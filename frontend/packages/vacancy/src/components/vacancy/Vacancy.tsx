@@ -1,25 +1,19 @@
 import React from "react";
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, IconButton, makeStyles, Typography} from '@material-ui/core';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, IconButton, Typography} from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import Reptile from '../../images/contemplative-reptile.jpg';
-import { useVacancyState } from "../../store/vacancyProvider";
+import { useVacancyState } from "../../store/vacancyContextProvider";
 import { useHistory, useParams } from "react-router-dom";
+import { useStyles } from "./style";
 
-const useStyles = makeStyles({
-    media: {
-      height: 140,
-    },
-    divider: {
-        marginTop: '8px',
-        marginBottom: '8px'
-    }
-  });
-
+interface ParamTypes {
+  ref: string;
+}
 export const Vacancy: React.FC = () => {
     const classes = useStyles();
     const { vacancies, vacanciesTop } = useVacancyState();
-    let { ref } = useParams();
+    let { ref } = useParams<ParamTypes>();
     const vacancy = [...vacancies,...vacanciesTop].find(v => v.reference === ref);
     
     const {
@@ -42,7 +36,7 @@ export const Vacancy: React.FC = () => {
         history.push(`/vacancy/application/${reference}/${title}`)
   }
   return (
-    <Card>
+    <Card data-testid='card-vacancy'>
         <CardActionArea>
             <CardMedia 
                 className={classes.media}

@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8080"; 
+const baseUrl = process.env.BACK_URL; 
 
 const fetchReferentialPays = async () => {
     const result = await fetch(`${baseUrl}/api/referential/pays`);

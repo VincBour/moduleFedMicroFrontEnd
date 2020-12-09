@@ -16,6 +16,13 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: theme.typography.fontWeightRegular,
       color: theme.palette.secondary.dark
     },
+    button: {
+      flexGrow: 1,
+      marginTop: "32px"
+    },
+    divider: {
+      margin: "8px" 
+    }
   }),
 );
 

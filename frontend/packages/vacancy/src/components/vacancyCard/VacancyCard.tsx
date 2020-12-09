@@ -1,28 +1,13 @@
-import { Button, Card, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { Button, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import logo from '../../images/icons8-services-100.png';
+import { useStyle } from './style';
+import { VacancyCardType } from './types';
 
-const useStyle = makeStyles((theme) => ({
-    paper: {
-        margin: theme.spacing(1),
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        flexWrap:'wrap',
-        justifyContent:'space-between',
-        height: '150px'
-      },
-}))
 
-export type VacancyCardType = {
-    type: string,
-    title: string,
-    location: string,
-    reference: string,
-}
-
-export const VacancyCard: React.FC<VacancyCardType> = ({type, title, location, reference}) => {
+export const VacancyCard: React.FC<VacancyCardType> = (props) => {
+    const {type, title, location, reference} = props;
     const classes = useStyle();
     const history = useHistory();
     const handleClick = () => {
@@ -30,15 +15,15 @@ export const VacancyCard: React.FC<VacancyCardType> = ({type, title, location, r
     }
     return(
             <Paper elevation={6} className={classes.paper}>
-                <div style={{width:"20%", marginLeft:'16px'}}>
-                    <img src={logo} style={{height: '100%'}}/> 
+                <div className={classes.containerImage}>
+                    <img src={logo} className={classes.image}/> 
                 </div>
-                <div style={{flexGrow: 2}}>
+                <div className={classes.containerInfo}>
                     <Typography component='h5' variant='h5' color='error'>{type}</Typography>
                     <Typography component='h4' variant='h4'>{title}</Typography>
                     <Typography component='h6' variant='h6' color='textSecondary'>{location}</Typography>
                 </div>
-                <Button style={{marginRight:'16px', width:'10%', height:'35%'}} variant='contained' color="primary"
+                <Button className={classes.button} variant='contained' color="primary"
                     onClick={handleClick}
                 >
                     <Typography>Voir</Typography>

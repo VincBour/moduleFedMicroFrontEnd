@@ -1,0 +1,1 @@
+export { getLogin, getRegister } from './actions';

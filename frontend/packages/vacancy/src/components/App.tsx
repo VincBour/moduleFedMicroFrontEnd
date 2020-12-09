@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ContainerVacancy from "./containerVacancy/ContainerVacancy";
+import ContainerVacancy from "./containerVacancy/VacancyContainer";
 import {HashRouter, Route, Switch} from "react-router-dom"; 
 import { routes } from "../route/routes";
 import { HomeVacancy } from "./home/HomeVacancy";
-
-
 
 const App = () => (
     <ContainerVacancy>

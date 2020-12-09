@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ActionMap } from '../../../shared/utils/ActionMap';
 import { userLogged } from '../types/userType';
-import { GET_LOGIN_USER_REQUEST, GET_LOGIN_USER_SUCCESS, GET_LOGIN_USER_FAILURE, GET_SIGN_USER_SUCCESS, GET_SIGN_USER_REQUEST, GET_SIGN_USER_FAILURE, GET_SIGN_OUT_USER } from './action-types';
-import { reducer } from './reducer';
+import { GET_LOGIN_USER_REQUEST, GET_LOGIN_USER_SUCCESS, GET_LOGIN_USER_FAILURE, GET_SIGN_USER_SUCCESS, GET_SIGN_USER_REQUEST, GET_SIGN_USER_FAILURE, GET_SIGN_OUT_USER } from '../store/action-types';
+import { reducer } from '../store/reducer';
 
 export type CandidatesStateType = {
     authentication: {
@@ -50,6 +50,16 @@ const CandidatesProvider = ({initialState, children}: CandidatesProviderType) =>
     );
 };
 
+const useCandidatesState = () => {
+    const context = React.useContext(CandidatesContext);
+
+    if (context === undefined) {
+        throw new Error('useCandidatesState must be used within a CandidatesProvider');
+    }
+
+    return context;
+};
+
 const useCandidatesDispatch = () => {
     const context = React.useContext(CandidatesDispatch);
 
@@ -60,4 +70,4 @@ const useCandidatesDispatch = () => {
     return context;
 };
 
-export { CandidatesProvider, useCandidatesDispatch };
+export { CandidatesProvider, useCandidatesDispatch, useCandidatesState };

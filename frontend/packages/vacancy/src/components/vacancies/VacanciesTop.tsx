@@ -1,11 +1,13 @@
 import React from 'react';
 import { Grid } from "@material-ui/core";
 import { getVacanciesTop } from '../../store/actions';
-import { useVacancyDispatch, useVacancyState } from '../../store/vacancyProvider';
+import { useVacancyDispatch, useVacancyState } from '../../store/vacancyContextProvider';
 import VacancyCard from '../vacancyCard/VacancyCard';
+import { useStyles } from './styles';
 
 
-export const VacanciesTop = () => {
+export const VacanciesTop: React.FC = () => {
+    const classes = useStyles();
     const { vacanciesTop } = useVacancyState();
     const dispatch = useVacancyDispatch();
     
@@ -17,14 +19,19 @@ export const VacanciesTop = () => {
         await getVacanciesTop(dispatch);
     }
     return (
-        <Grid container style={{display: 'flex', flexDirection: 'column', justifyContent:'center'}} spacing={3}>
-            {vacanciesTop.map((vacancy, index) => {
-                return (
-                    <Grid item key={index}>
-                        <VacancyCard title={vacancy.title} type={vacancy.offerCategory} location={vacancy.localisation} reference={vacancy.reference}/>
+        <Grid container className={classes.container} spacing={3} data-testid='grid-vacancies'>
+            {vacanciesTop.map((vacancy, index) => 
+                 (
+                    <Grid item key={index} data-testid={`item-${index}`}>
+                        <VacancyCard 
+                            title={vacancy.title} 
+                            type={vacancy.offerCategory} 
+                            location={vacancy.localisation} 
+                            reference={vacancy.reference}
+                        />
                     </Grid>
                 )
-            })}
+            )}
         </Grid>
     )
 }

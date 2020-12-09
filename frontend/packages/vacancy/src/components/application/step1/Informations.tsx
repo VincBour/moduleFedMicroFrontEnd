@@ -3,7 +3,7 @@ import React from "react"
 
 export const Informations = () => {
     return (
-        <form>
+        <form data-testid="application-step1">
             <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField

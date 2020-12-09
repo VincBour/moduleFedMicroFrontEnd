@@ -1,8 +1,8 @@
 import { GET_LOGIN_USER_FAILURE, GET_LOGIN_USER_REQUEST, GET_LOGIN_USER_SUCCESS, GET_SIGN_OUT_USER } from "./action-types";
-import { ActionType, CandidatesStateType } from "./candidatesProvider";
+import { ActionType, CandidatesStateType } from "../context/CandidatesProvider";
 
 export const reducer = (state: CandidatesStateType, action: ActionType): CandidatesStateType => {
-    console.log('action', action);
+    
     switch(action.type){
         case GET_LOGIN_USER_REQUEST:{
             return {...state, authentication: {...state.authentication, isRequestSend: true}}

@@ -1,24 +1,33 @@
 import * as React from 'react';
 import { Referential } from '../components/SelectField/type';
 import { VacancyType } from '../components/vacancies/type';
+import { GET_REFERENTIAL_PAYS_SUCCESS, GET_REFERENTIAL_CONTRACTS_SUCCESS, GET_REFERENTIAL_SPECIALITE_SUCCESS, GET_REFERENTIAL_FAILURE, GET_VACANCIES_FAILURE, GET_VACANCIES_SUCCESS, GET_VACANCIES_TOP_FAILURE, GET_VACANCIES_TOP_SUCCESS } from './action-types';
 import { reducer } from './reducer';
+import { VacancyStateType } from './type';
 
-export type VacancyStateType = {
-    referential: {
-        pays: Referential[],
-        contracts: Referential[],
-        specialite: Referential[]
-    },
-    vacanciesTop: VacancyType[],
-    vacancies: VacancyType[],
-    error: string
+type ActionMap<M extends {[index:string] :any}> = {
+    [Key in keyof M]: M[Key] extends undefined
+        ? {
+            type: Key;
+        }
+        : {
+            type:Key;
+            payload: M[Key];
+        }
 }
-export type ActionVacanciesTopType = { type: string, payload: { vacancies: VacancyType[]}}
-export type ActionReferentialType = { type: string, payload: { referentials: Referential[]}}
-export type ActionErrorType = { type: string, payload: {error: string}}
-export type ActionType = {
-    type: string
-} | ActionReferentialType | ActionErrorType | ActionVacanciesTopType
+
+export type VacancyActionPayload = {
+    [GET_VACANCIES_TOP_SUCCESS]: { vacancies: VacancyType[] },
+    [GET_VACANCIES_SUCCESS]: { vacancies: VacancyType[] },
+    [GET_REFERENTIAL_PAYS_SUCCESS]: { referentials: Referential[] },
+    [GET_REFERENTIAL_CONTRACTS_SUCCESS]: { referentials: Referential[] },
+    [GET_REFERENTIAL_SPECIALITE_SUCCESS]: { referentials: Referential[] },
+    [GET_VACANCIES_TOP_FAILURE]: { error: string},
+    [GET_VACANCIES_FAILURE]: { error: string},
+    [GET_REFERENTIAL_FAILURE]: { error: string},
+}
+
+export type ActionType = ActionMap<VacancyActionPayload>[keyof ActionMap<VacancyActionPayload>]
 
 export type DispatchType = (action: ActionType) => void;
 
@@ -27,7 +36,7 @@ export type VacancyProviderType = { children: React.ReactNode, initialState: Vac
 const VacancyContext = React.createContext<VacancyStateType | undefined>(undefined);
 const VacancyDispatch = React.createContext<DispatchType | undefined>(undefined)
 
-const VacancyProvider = ({initialState, children}: VacancyProviderType) => {
+const VacancyContextProvider = ({initialState, children}: VacancyProviderType) => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
 
     return (
@@ -59,4 +68,4 @@ const useVacancyDispatch = () => {
     return context;
 };
 
-export { VacancyProvider, useVacancyState, useVacancyDispatch };
+export { VacancyContextProvider, useVacancyState, useVacancyDispatch };

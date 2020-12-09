@@ -66,9 +66,10 @@ const VacancySearch: React.FC = () => {
                 <Button
                   variant="contained"
                   size="large"
-                  style={{ flexGrow: 1, marginTop: "32px" }}
+                  className={classes.button}
                   color="primary"
                   onClick={handleClick}
+                  data-testid='search-button'
                 >
                   Rechercher
                 </Button>
@@ -77,7 +78,7 @@ const VacancySearch: React.FC = () => {
           </form>
         </AccordionDetails>
       </Accordion>
-      <Divider variant="middle" style={{ margin: "8px" }} />
+      <Divider variant="middle" className={classes.divider} />
     </>
   );
 };

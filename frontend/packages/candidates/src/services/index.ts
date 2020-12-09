@@ -1,6 +1,6 @@
 import { userLogged, userType } from "../types/userType";
 
-const baseUrl = "http://localhost:8080"; 
+const baseUrl = process.env.BACK_URL; 
 
 const LoginUser = async (authModel: userType): Promise<userLogged> => {
     const myHeaders: Headers = new Headers();
@@ -11,6 +11,7 @@ const LoginUser = async (authModel: userType): Promise<userLogged> => {
         headers:myHeaders,
         body:JSON.stringify(authModel)
     }
+    
     const response = await fetch(`${baseUrl}/api/authentication/signin`, myInit);
 
     if (response.status === 401) {

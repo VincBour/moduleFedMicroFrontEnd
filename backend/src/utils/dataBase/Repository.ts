@@ -1,8 +1,8 @@
 import mongoose, { Model, Schema } from 'mongoose';
 
 const getCollection = async <T extends mongoose.Document>(collectionName: string, schema: Schema): Promise<mongoose.Model<T, {}>> => {
-//     const client = await mongoose.connect('mongodb://localhost:27017/dbmfe', {useNewUrlParser: true, useUnifiedTopology: true });
-    const client = await mongoose.connect('mongodb://localhost:37017/microfrontend', {useNewUrlParser: true, useUnifiedTopology: true });
+    const client = await mongoose.connect('mongodb://localhost:27017/dbmfe', {useNewUrlParser: true, useUnifiedTopology: true });
+//     const client = await mongoose.connect('mongodb://localhost:37017/microfrontend', {useNewUrlParser: true, useUnifiedTopology: true });
     const connection = client.connection;
     console.log(connection.model(collectionName, schema));
     return connection.model(collectionName, schema);

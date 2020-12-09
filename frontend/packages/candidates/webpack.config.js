@@ -1,5 +1,7 @@
+'use strict'
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   output: {
@@ -52,7 +54,7 @@ module.exports = {
          './ProtectedRoutes': "./src/router/protectedRoutes",
          './ProtectedRouteService': "./src/services/protectedRoute",
          './UserSessionManager': "./src/services/userSessionManager",
-         './UseCandidatesState': './src/store/useCandidatesState',
+         './UseCandidatesState': './src/context/useCandidatesState',
          './BottomSignOut': './src/components/navigation/BottomSignOut'
       },
       shared: require("./package.json").dependencies,
@@ -60,5 +62,8 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
     }),
+    new Dotenv({
+      path: './.env'
+    })
   ],
 };

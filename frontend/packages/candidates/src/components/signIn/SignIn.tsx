@@ -10,15 +10,16 @@ import {
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { useStyles } from "./style";
 import { useHistory, useLocation } from "react-router-dom";
 import { userType } from "../../types/userType";
-import { useCandidatesDispatch } from "../../store/candidatesProvider";
-import { getLogin } from "../../store/actions";
-import useCandidatesState from "../../store/useCandidatesState";
+import { useCandidatesDispatch, useCandidatesState } from "../../context/CandidatesProvider";
+import { getLogin } from "../../store";
 
-export const SignIn = () => {
+type SignInProps = RouteComponentProps;
+
+export const SignIn: React.FC<SignInProps> = () => {
   const classes = useStyles();
 
   const { authentication, session } = useCandidatesState();
@@ -87,6 +88,7 @@ export const SignIn = () => {
 
             }
             <Button
+              data-testid='button-connexion'
               type="button"
               fullWidth
               variant="contained"
@@ -97,11 +99,6 @@ export const SignIn = () => {
               Connexion
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link to="/signup">{"Je n'ai pas de compte? Sign Up"}</Link>
               </Grid>

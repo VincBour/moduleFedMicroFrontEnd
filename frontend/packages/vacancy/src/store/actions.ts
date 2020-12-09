@@ -1,4 +1,4 @@
-import { DispatchType } from "./vacancyProvider";
+import { DispatchType } from "./vacancyContextProvider";
 import VacancyService from '../services/index';
 import { 
     GET_REFERENTIAL_FAILURE, 
@@ -42,8 +42,8 @@ const getReferentialSpecialite = async (dispatch: DispatchType): Promise<void> =
 export const getReferential = (name: string) => {
     const mapping: {[key: string]: (dispatch: DispatchType) => Promise<void>} = {
         ['Pays']: getReferentialPays,
-        ['Specialite/emploi']: getReferentialContracts,
-        ['Type de contrat']: getReferentialSpecialite
+        ['Specialite/emploi']: getReferentialSpecialite,
+        ['Type de contrat']: getReferentialContracts
     }
     return mapping[name];
 } 

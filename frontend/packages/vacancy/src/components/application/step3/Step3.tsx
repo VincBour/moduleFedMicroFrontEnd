@@ -9,7 +9,7 @@ export const Step3 = () => {
   };
     return (
         <>
-        <Typography component='h3' variant='h5' align='center'>Pourquoi avez-vous décidé de postuler</Typography>
+        <Typography component='h3' variant='h5' align='center' data-testid="application-step3">Pourquoi avez-vous décidé de postuler</Typography>
             <TextField
             id="outlined-multiline-flexible"
             multiline

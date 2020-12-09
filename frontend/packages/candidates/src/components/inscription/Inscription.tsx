@@ -1,21 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { Avatar, Button, Checkbox, FormControlLabel, Grid, Paper, TextField, Typography } from "@material-ui/core";
 import { useHistory } from 'react-router-dom';
 import { useStyles } from './style';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { userType } from "../../types/userType";
-import { useCandidatesDispatch } from "../../store/candidatesProvider";
-import { getRegister } from "../../store/actions";
+import { useCandidatesDispatch } from "../../context/CandidatesProvider";
+import { getRegister } from "../../store";
 
-export const Inscription = () => {
+
+type InscriptionProps = RouteComponentProps;
+
+export const Inscription: React.FC<InscriptionProps> = () => {
     const history = useHistory();
     const classes = useStyles();
     const dispatch = useCandidatesDispatch();
     const [user, setUser] = React.useState<userType>({} as userType);
 
-    const handleClick = async () => {
-        await getRegister(dispatch, user);
+    const handleClick = () => {
+        getRegister(dispatch, user);
         history.push('/signin');
     }
 
@@ -82,11 +85,6 @@ export const Inscription = () => {
                   Je me crée un espace candidat
                 </Button>
                 <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
-                  </Grid>
                   <Grid item>
                     <Link to='/signin'>
                       {"J'ai déjà un compte, je me connecte"}

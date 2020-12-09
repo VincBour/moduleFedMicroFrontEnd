@@ -4,6 +4,7 @@ import { Informations } from './step1/Informations';
 import {useHistory, useParams} from 'react-router-dom'
 import { Step2 } from './step2/Step2';
 import { Step3 } from './step3/Step3';
+import { ParamTypes } from './type';
 const useStyles = makeStyles((theme) => ({
     appBar: {
       position: 'relative',
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   
   const steps = ['Informations personnelles', 'Pièces jointes', 'Pourquoi'];
   
-  function getStepContent(step) {
+  const getStepContent = (step: number) => {
     switch (step) {
       case 0:
         return <Informations />;
@@ -59,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
   export const Application = () => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
-    let { ref, title } = useParams();
+    let { ref, title } = useParams<ParamTypes>();
+    
     const handleNext = () => {
       setActiveStep(activeStep + 1);
     };

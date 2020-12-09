@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Description } from "../description/Description";
-import NotFound from "../NotFound";
 import routes from "../../router/routes";
-import ProtectedRoute from "../../services/protectedRoute";
+import ProtectedRoute from "../../shared/ProtectedRoutes/protectedRoute";
 import { Navigation } from "../navigation/Navigation";
 import protectedRoutes from "../../router/protectedRoutes";
-import useCandidatesState from "../../store/useCandidatesState";
+import { useCandidatesState } from "../../context/CandidatesProvider";
+import NotFound from "../../shared/NotFound/NotFound";
 
 export const CandidatesRoutes = () => {
   const [token, setToken] = React.useState(null)
@@ -30,7 +30,7 @@ export const CandidatesRoutes = () => {
           render={(props) => <route.component {...props} />}
         />
       ))}
-      {/* {protectedRoutes.map((protectedRoute, index) => {
+      {protectedRoutes.map((protectedRoute, index) => {
         return (
           <ProtectedRoute
             key={index}
@@ -39,7 +39,7 @@ export const CandidatesRoutes = () => {
             isAuthenticated={token === null ? false : true}
           />
         );
-      })} */}
+      })}
       <Route path="*">
         <NotFound />
       </Route>

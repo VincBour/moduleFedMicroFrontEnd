@@ -1,26 +1,7 @@
-import { Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import { Button, Grid, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { useHistory } from 'react-router-dom';
-
-const useStyles= makeStyles((theme)=>({
-    root:{
-        
-    },
-    image: {
-        backgroundImage: 'url(https://source.unsplash.com/random)',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor:
-          theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      },
-      paper: {
-        margin: theme.spacing(8, 4),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      },
-}))
+import { useStyles } from "./styles";
 
 export const Description = () => {
     const history = useHistory();

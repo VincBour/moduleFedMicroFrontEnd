@@ -1,5 +1,7 @@
+'use strict'
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   output: {
@@ -51,7 +53,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./ContainerVacancy": "./src/components/containerVacancy/ContainerVacancy",
+        "./ContainerVacancy": "./src/components/containerVacancy/VacancyContainer",
         "./HomeVacancy": "./src/components/home/HomeVacancy",
         "./Vacancies": "./src/components/vacancies/Vacancies",
         "./Application": "./src/components/application/Application",
@@ -63,5 +65,8 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
     }),
+    new Dotenv({
+      path: './.env'
+    })
   ],
 };
